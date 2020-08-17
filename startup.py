@@ -45,7 +45,7 @@ input_schema = {
 inputs = {}
 
 for key, value in input_schema.items(): 
-    inputs['key'] = Button(value)
+    inputs[key] = Button(value)
 
 screen = LED(24)
 # up = Button(6)
