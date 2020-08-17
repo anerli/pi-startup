@@ -42,18 +42,25 @@ input_schema = {
     'press': 13
 }
 
-led = LED(24)
-up = Button(6)
-down = Button(19)
+inputs = {}
+
+for key, value in input_schema.items(): 
+    inputs['key'] = Button(value)
+
+screen = LED(24)
+# up = Button(6)
+# down = Button(19)
+
+inputs['press'].when_pressed = screen.toggle()
 
 
-up.when_pressed = led.on
-up.when_released = led.off
+# up.when_pressed = led.on
+# up.when_released = led.off
 
-def asd():
-    print('down')
+# def asd():
+#     print('down')
 
-down.when_pressed = asd #lambda: print('down')
+# down.when_pressed = asd #lambda: print('down')
 
 pause()
 
