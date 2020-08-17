@@ -54,6 +54,9 @@ def asd():
 
 down.when_pressed = asd #lambda: print('down')
 
+while True:
+    pass
+
 # # Joystick press
 # #GPIO.setup(13, GPIO.IN)
 # for key, value in input_schema.items():
