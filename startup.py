@@ -24,7 +24,7 @@ if platform == 'win32':
     from EmulatorGUI import GPIO
 else:
     print('fsa')
-    from RPi.GPIO import GPIO # pylint: disable=import-error
+    import RPi.GPIO as GPIO # pylint: disable=import-error
 
 GPIO.setmode(GPIO.BCM)
 
