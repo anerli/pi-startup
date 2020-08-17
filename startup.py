@@ -51,16 +51,20 @@ screen = LED(24)
 # up = Button(6)
 # down = Button(19)
 
+
 inputs['press'].when_pressed = screen.toggle()
 
 
 # up.when_pressed = led.on
 # up.when_released = led.off
 
-# def asd():
-#     print('down')
+def asd():
+     print('asd')
+     with open('asd.txt', 'a') as f:
+         f.write('asd')
 
 # down.when_pressed = asd #lambda: print('down')
+inputs['up'].when_pressed = asd
 
 pause()
 
