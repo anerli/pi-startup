@@ -17,16 +17,18 @@ Joystick Right P26 Joystick right
 Joystick Press P13 Joystick press
 '''
 
-from sys import platform
+# from sys import platform
 
-if platform == 'win32':
-    print('you on windows')
-    from EmulatorGUI import GPIO
-    GPIO.setmode(GPIO.BCM)
-else:
-    print('fsa')
-    import RPi.GPIO as GPIO # pylint: disable=import-error
-    GPIO.setmode(GPIO.BOARD)
+# if platform == 'win32':
+#     print('you on windows')
+#     from EmulatorGUI import GPIO
+#     GPIO.setmode(GPIO.BCM)
+# else:
+#     print('fsa')
+#     import RPi.GPIO as GPIO # pylint: disable=import-error
+#     GPIO.setmode(GPIO.BCM)
+
+from gpiozero import LED, Button
 
 input_schema = {
     'key1': 21,
@@ -39,14 +41,27 @@ input_schema = {
     'press': 13
 }
 
-# Joystick press
-#GPIO.setup(13, GPIO.IN)
-for key, value in input_schema.items():
-    GPIO.setup(value, GPIO.IN)
+led = LED(24)
+up = Button(6)
+down = Button(19)
 
-while True:
-    for key, value in input_schema.items():
-        if GPIO.input(value):
-            print(key)
-    #if GPIO.input(13):
-    #    print('u r pressing joystick down')
+
+up.when_pressed = led.on
+up.when_released = led.off
+
+def asd():
+    print('down')
+
+down.when_pressed = asd #lambda: print('down')
+
+# # Joystick press
+# #GPIO.setup(13, GPIO.IN)
+# for key, value in input_schema.items():
+#     GPIO.setup(value, GPIO.IN)
+
+# while True:
+#     for key, value in input_schema.items():
+#         if GPIO.input(value):
+#             print(key)
+#     #if GPIO.input(13):
+#     #    print('u r pressing joystick down')
