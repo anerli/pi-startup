@@ -63,8 +63,13 @@ def asd():
      with open('asd.txt', 'a') as f:
          f.write('asd')
 
+def dsa():
+    print('dsa')
+
 # down.when_pressed = asd #lambda: print('down')
 inputs['up'].when_pressed = asd
+inputs['down'].when_pressed = dsa
+inputs['right'].when_pressed = lambda: print('sdfasfsads')
 
 pause()
 
