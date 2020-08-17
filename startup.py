@@ -52,7 +52,7 @@ screen = LED(24)
 # down = Button(19)
 
 
-inputs['press'].when_pressed = screen.toggle()
+# inputs['press'].when_pressed = screen.toggle()
 
 
 # up.when_pressed = led.on
@@ -67,9 +67,12 @@ def dsa():
     print('dsa')
 
 # down.when_pressed = asd #lambda: print('down')
-inputs['up'].when_pressed = asd
-inputs['down'].when_pressed = dsa
-inputs['right'].when_pressed = lambda: print('sdfasfsads')
+# inputs['up'].when_pressed = asd
+# inputs['down'].when_pressed = dsa
+# inputs['right'].when_pressed = lambda: print('sdfasfsads')
+
+for key, value in inputs.items(): 
+    value.when_pressed = lambda: print(key)
 
 pause()
 
