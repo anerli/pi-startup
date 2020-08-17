@@ -22,11 +22,11 @@ from sys import platform
 if platform == 'win32':
     print('you on windows')
     from EmulatorGUI import GPIO
+    GPIO.setmode(GPIO.BCM)
 else:
     print('fsa')
     import RPi.GPIO as GPIO # pylint: disable=import-error
-
-GPIO.setmode(GPIO.BCM)
+    GPIO.setmode(GPIO.BOARD)
 
 input_schema = {
     'key1': 21,
