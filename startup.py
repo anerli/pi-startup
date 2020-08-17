@@ -29,6 +29,7 @@ Joystick Press P13 Joystick press
 #     GPIO.setmode(GPIO.BCM)
 
 from gpiozero import LED, Button
+from signal import pause # pylint: disable=no-name-in-module
 
 input_schema = {
     'key1': 21,
@@ -54,8 +55,7 @@ def asd():
 
 down.when_pressed = asd #lambda: print('down')
 
-while True:
-    pass
+pause()
 
 # # Joystick press
 # #GPIO.setup(13, GPIO.IN)
